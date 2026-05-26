@@ -20,7 +20,7 @@ const OrderCard = ({ order }) => {
   const itemDescription = order.items?.map((i) => i.name).join(', ') || 'No items';
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-4 flex items-center gap-4">
+    <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
       {/* icon tile */}
       <div
         className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"

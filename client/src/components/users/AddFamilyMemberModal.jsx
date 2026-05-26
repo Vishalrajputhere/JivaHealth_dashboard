@@ -112,7 +112,7 @@ const AddFamilyMemberModal = ({ isOpen, onClose, userId, existingMember }) => {
           </select>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-medium text-gray-600 mb-1">Phone</label>
             <input
@@ -136,7 +136,7 @@ const AddFamilyMemberModal = ({ isOpen, onClose, userId, existingMember }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-medium text-gray-600 mb-1">Gender</label>
             <select

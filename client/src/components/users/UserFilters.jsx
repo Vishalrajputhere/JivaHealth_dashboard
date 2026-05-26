@@ -2,9 +2,9 @@ const UserFilters = ({ search, onSearchChange, statusFilter, onStatusChange }) =
   const statusOptions = ['All Status', 'Active', 'Inactive'];
 
   return (
-    <div className="flex items-center gap-3 mb-5">
+    <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 mb-5">
       {/* search input */}
-      <div className="relative flex-1 max-w-xl">
+      <div className="relative flex-1 md:max-w-xl">
         <svg
           className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
           width="15"

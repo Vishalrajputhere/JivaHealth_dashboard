@@ -22,18 +22,21 @@ const UserCard = ({ user }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-5 flex items-center gap-4 hover:shadow-sm transition-shadow">
+    <div className="bg-white rounded-xl border border-gray-200 p-4 md:p-5 flex flex-col md:flex-row md:items-center gap-4 hover:shadow-sm transition-shadow">
 
-      {/* avatar */}
-      <Avatar name={user.name} size="md" />
+      {/* avatar + name row on mobile */}
+      <div className="flex items-center gap-3 md:gap-4">
+        {/* avatar */}
+        <Avatar name={user.name} size="md" />
 
-      {/* name + badges — fixed width so layout doesn't shift */}
-      <div className="flex-shrink-0" style={{ minWidth: '170px' }}>
-        <p className="font-semibold text-gray-900 text-base">{user.name}</p>
-        <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
-          <Badge label={user.role} variant="default" />
-          <Badge label={user.status} variant={user.status?.toLowerCase()} />
-          <Badge label={user.userType} variant="default" />
+        {/* name + badges — fixed width so layout doesn't shift */}
+        <div className="flex-shrink-0 md:min-w-[170px]">
+          <p className="font-semibold text-gray-900 text-base">{user.name}</p>
+          <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+            <Badge label={user.role} variant="default" />
+            <Badge label={user.status} variant={user.status?.toLowerCase()} />
+            <Badge label={user.userType} variant="default" />
+          </div>
         </div>
       </div>
 
@@ -54,32 +57,35 @@ const UserCard = ({ user }) => {
         </div>
       </div>
 
-      {/* joined date */}
-      <div className="flex-shrink-0" style={{ minWidth: '130px' }}>
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" className="flex-shrink-0">
-            <rect x="0.75" y="1.75" width="11.5" height="10.5" rx="1.5" stroke="#9ca3af" strokeWidth="1.2" />
-            <path d="M0.75 4.75h11.5" stroke="#9ca3af" strokeWidth="1.2" />
-            <path d="M4 0.75v2M9 0.75v2" stroke="#9ca3af" strokeWidth="1.2" strokeLinecap="round" />
-          </svg>
-          <span>Joined</span>
+      {/* joined date + appointments row on mobile */}
+      <div className="flex items-center gap-4 md:gap-4">
+        {/* joined date */}
+        <div className="flex-shrink-0 md:min-w-[130px]">
+          <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" className="flex-shrink-0">
+              <rect x="0.75" y="1.75" width="11.5" height="10.5" rx="1.5" stroke="#9ca3af" strokeWidth="1.2" />
+              <path d="M0.75 4.75h11.5" stroke="#9ca3af" strokeWidth="1.2" />
+              <path d="M4 0.75v2M9 0.75v2" stroke="#9ca3af" strokeWidth="1.2" strokeLinecap="round" />
+            </svg>
+            <span>Joined</span>
+          </div>
+          <p className="text-sm font-medium text-gray-700">{formatDate(user.createdAt)}</p>
+          {user.lastAppointmentDate && (
+            <p className="text-xs text-gray-400">Last: {formatDate(user.lastAppointmentDate)}</p>
+          )}
         </div>
-        <p className="text-sm font-medium text-gray-700">{formatDate(user.createdAt)}</p>
-        {user.lastAppointmentDate && (
-          <p className="text-xs text-gray-400">Last: {formatDate(user.lastAppointmentDate)}</p>
-        )}
-      </div>
 
-      {/* appointment count */}
-      <div className="flex-shrink-0" style={{ minWidth: '100px' }}>
-        <p className="text-xs text-gray-500 mb-1">Appointments</p>
-        <p className="text-2xl font-bold text-blue-700">{user.appointmentCount ?? 0}</p>
+        {/* appointment count */}
+        <div className="flex-shrink-0 md:min-w-[100px]">
+          <p className="text-xs text-gray-500 mb-1">Appointments</p>
+          <p className="text-2xl font-bold text-blue-700">{user.appointmentCount ?? 0}</p>
+        </div>
       </div>
 
       {/* action buttons — prime toggle always takes same space so the row doesn't jump */}
-      <div className="flex items-center gap-2 flex-shrink-0">
+      <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
 
-        <div style={{ minWidth: '160px' }}>
+        <div className="min-w-[140px] md:min-w-[160px]">
           {user.isPrime ? (
             <button
               onClick={handleRevert}

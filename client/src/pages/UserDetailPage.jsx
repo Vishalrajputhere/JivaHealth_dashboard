@@ -117,19 +117,19 @@ const UserDetailPage = () => {
       </button>
 
       {/* user header card */}
-      <div className="bg-white rounded-xl border border-gray-200 p-6 mb-5">
-        <div className="flex items-start gap-5">
+      <div className="bg-white rounded-xl border border-gray-200 p-4 md:p-6 mb-5">
+        <div className="flex flex-col md:flex-row items-start gap-4 md:gap-5">
           <Avatar name={user.name} size="xl" />
 
           <div className="flex-1 min-w-0">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">{user.name}</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{user.name}</h1>
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <Badge label={user.status} variant={user.status?.toLowerCase()} />
               <Badge label={user.role} variant="default" />
               <Badge label={user.userType} variant="default" />
               <span className="text-sm text-gray-400">ID: #{user._id?.slice(-4)}</span>
             </div>
-            <div className="flex items-center gap-5 text-sm text-gray-500">
+            <div className="flex flex-wrap items-center gap-3 md:gap-5 text-sm text-gray-500">
               <span className="flex items-center gap-1.5">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                   <rect x="0.75" y="1.75" width="11.5" height="10.5" rx="1.5" stroke="#9ca3af" strokeWidth="1.1" />
@@ -148,11 +148,11 @@ const UserDetailPage = () => {
           </div>
 
           {/* action buttons */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 flex-shrink-0">
             {user.isPrime ? (
               <button
                 onClick={handleRevertToPrime}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm border-2 transition-colors"
+                className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 rounded-lg font-semibold text-sm border-2 transition-colors"
                 style={{ color: 'var(--jiva-green)', borderColor: 'var(--jiva-green)', backgroundColor: 'transparent' }}
                 onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--jiva-green-light)'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
@@ -166,7 +166,7 @@ const UserDetailPage = () => {
             ) : (
               <button
                 onClick={handleUpgradeToPrime}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-white font-semibold text-sm transition-colors"
+                className="flex items-center gap-2 px-3 md:px-4 py-2 md:py-2.5 rounded-lg text-white font-semibold text-sm transition-colors"
                 style={{ backgroundColor: 'var(--jiva-orange)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--jiva-orange-dark)')}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--jiva-orange)')}
@@ -195,7 +195,7 @@ const UserDetailPage = () => {
       </div>
 
       {/* metric cards */}
-      <div className="grid grid-cols-4 gap-4 mb-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-5">
         <div className="bg-white rounded-xl border border-gray-200 p-5 flex items-center justify-between">
           <div>
             <p className="text-sm text-gray-500 mb-1">Total Orders</p>
@@ -245,13 +245,13 @@ const UserDetailPage = () => {
       </div>
 
       {/* tab nav */}
-      <div className="border-b border-gray-200 mb-5">
-        <div className="flex gap-0">
+      <div className="border-b border-gray-200 mb-5 overflow-x-auto">
+        <div className="flex gap-0 min-w-max">
           {TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`flex items-center gap-2 px-5 py-3 text-sm font-medium border-b-2 transition-colors -mb-px ${
+              className={`flex items-center gap-2 px-3 md:px-5 py-3 text-sm font-medium border-b-2 transition-colors -mb-px whitespace-nowrap ${
                 activeTab === tab
                   ? 'border-green-600 text-green-700'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
@@ -266,7 +266,7 @@ const UserDetailPage = () => {
 
       {/* overview tab */}
       {activeTab === 'Overview' && (
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-5">
               <h2 className="text-base font-semibold text-gray-800">Personal Information</h2>

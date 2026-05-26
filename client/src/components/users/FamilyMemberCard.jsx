@@ -14,7 +14,7 @@ const FamilyMemberCard = ({ member, onEdit }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-4 flex items-center gap-4">
+    <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
       {/* avatar */}
       <Avatar name={member.name} size="md" />
 

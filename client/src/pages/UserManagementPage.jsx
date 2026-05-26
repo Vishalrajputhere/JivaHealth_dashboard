@@ -22,7 +22,7 @@ const UserManagementPage = () => {
   return (
     <DashboardLayout>
       {/* page header */}
-      <div className="flex items-start justify-between mb-6">
+      <div className="flex flex-col md:flex-row items-start justify-between gap-3 mb-6">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">User Management</h1>
           <p className="text-sm text-gray-500 mt-0.5">
@@ -43,7 +43,7 @@ const UserManagementPage = () => {
       </div>
 
       {/* stat cards */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
         <StatCard
           label="Total User"
           value={stats.totalUsers}

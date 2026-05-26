@@ -19,7 +19,7 @@ const navItems = [
 const Sidebar = () => {
   return (
     <aside
-      className="fixed top-0 left-0 h-full bg-white border-r border-gray-200 flex flex-col z-30"
+      className="fixed top-0 left-0 h-full bg-white border-r border-gray-200 hidden md:flex flex-col z-30"
       style={{ width: 'var(--sidebar-width)' }}
     >
       {/* logo */}
