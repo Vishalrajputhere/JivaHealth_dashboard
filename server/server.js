@@ -18,13 +18,23 @@ const app = express();
 app.use(express.json());
 
 // allow requests from the client url (env var in production, localhost in dev)
-const clientOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
+let clientOrigin = 'http://localhost:5173';
+if (process.env.CLIENT_URL) {
+  try {
+    // Clean up in case user pasted a URL with trailing slash or subpages (e.g. /users)
+    clientOrigin = new URL(process.env.CLIENT_URL).origin;
+  } catch (error) {
+    clientOrigin = process.env.CLIENT_URL;
+  }
+}
+
 app.use(
   cors({
     origin: clientOrigin,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
 );
+
 
 
 // routes
