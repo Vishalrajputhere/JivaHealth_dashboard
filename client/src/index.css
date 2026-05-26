@@ -1,0 +1,58 @@
+/* Google Fonts must be imported FIRST before any other rules (CSS spec requirement) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+
+/* ── Custom Design Tokens ────────────────────────────────────────────────────
+   These CSS variables match exactly the Jiva Health brand colors extracted
+   from the UI mockups. Using CSS vars lets us reference them anywhere. */
+:root {
+  --jiva-green: #00965e;
+  --jiva-green-dark: #007a4d;
+  --jiva-green-light: #e6f7f1;
+  --jiva-orange: #f97316;
+  --jiva-orange-dark: #ea6d0d;
+  --sidebar-width: 256px;
+  --header-height: 64px;
+}
+
+/* ── Base Styles ─────────────────────────────────────────────────────────────*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar Styling ───────────────────────────────────────────────────────*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* ── Utility: Jiva Green text ────────────────────────────────────────────────*/
+.text-jiva-green { color: var(--jiva-green); }
+.bg-jiva-green { background-color: var(--jiva-green); }
+.bg-jiva-green-light { background-color: var(--jiva-green-light); }
+.border-jiva-green { border-color: var(--jiva-green); }
+
+/* ── Utility: Orange CTA ─────────────────────────────────────────────────────*/
+.bg-jiva-orange { background-color: var(--jiva-orange); }
+.hover-bg-jiva-orange-dark:hover { background-color: var(--jiva-orange-dark); }
