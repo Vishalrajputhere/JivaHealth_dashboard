@@ -17,13 +17,15 @@ const app = express();
 
 app.use(express.json());
 
-// allow requests from the react dev server
+// allow requests from the client url (env var in production, localhost in dev)
+const clientOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: clientOrigin,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
 );
+
 
 // routes
 app.use('/api/users', require('./routes/userRoutes'));

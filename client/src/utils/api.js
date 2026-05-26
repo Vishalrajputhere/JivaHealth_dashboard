@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-// using vite proxy so we don't hardcode localhost:5000 everywhere
+// using VITE_API_URL in production, fallback to '/api' for vite proxy in local dev
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export default api;
+
