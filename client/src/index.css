@@ -56,3 +56,33 @@ body {
 /* ── Utility: Orange CTA ─────────────────────────────────────────────────────*/
 .bg-jiva-orange { background-color: var(--jiva-orange); }
 .hover-bg-jiva-orange-dark:hover { background-color: var(--jiva-orange-dark); }
+
+/* ── Layout & Responsiveness ──────────────────────────────────────────────────*/
+.main-content {
+  margin-left: 0;
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+.header-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--header-height);
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 20;
+  transition: left 0.2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    margin-left: var(--sidebar-width);
+  }
+  .header-bar {
+    left: var(--sidebar-width);
+  }
+}
+

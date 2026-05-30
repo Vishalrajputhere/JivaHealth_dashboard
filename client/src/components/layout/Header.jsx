@@ -6,15 +6,7 @@ const Header = () => {
 
   return (
     <>
-      {/* On md+ screens, push header right of sidebar */}
-      <style>{`@media (min-width: 768px) { .header-bar { left: var(--sidebar-width) !important; } }`}</style>
-      <header
-        className="header-bar fixed top-0 right-0 bg-white border-b border-gray-200 flex items-center px-3 md:px-6 z-20"
-        style={{
-          left: '0',
-          height: 'var(--header-height)',
-        }}
-      >
+      <header className="header-bar flex items-center px-3 md:px-6">
         {/* sidebar toggle */}
         <button
           className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors mr-4"
